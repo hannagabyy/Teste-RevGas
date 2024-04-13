@@ -2,7 +2,7 @@ import pandas as pd
 import mysql.connector
 from mysql.connector import Error
 
-# Função para conectar ao banco de dados MySQL
+
 def conectar_mysql():
     try:
         connection = mysql.connector.connect(
@@ -18,7 +18,7 @@ def conectar_mysql():
         print(f"Erro ao conectar ao MySQL: {e}")
         return None
 
-# Função para inserir dados no banco de dados MySQL
+
 def inserir_dados(connection, tabela, dados):
     cursor = connection.cursor()
     for _, linha in dados.iterrows():
@@ -31,18 +31,16 @@ def inserir_dados(connection, tabela, dados):
             connection.rollback()
     cursor.close()
 
-# Lendo dados do arquivo Excel
+
 dados_excel = pd.read_excel('./bancos.xls')
 
-# Conectando ao banco de dados MySQL
+
 conexao = conectar_mysql()
 
 if conexao:
-    # Nome da tabela no banco de dados
-    tabela_mysql = 'bancos_banco'
+    tabela_mysql = 'banco'
 
-    # Inserindo os dados no banco de dados MySQL
     inserir_dados(conexao, tabela_mysql, dados_excel)
 
-    # Fechando a conexão com o banco de dados
+    
     conexao.close()

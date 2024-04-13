@@ -7,12 +7,13 @@ from django.template import loader
 # Create your views here.
 def index(request):
     todos_os_bancos = Banco.objects.all()
-    template = loader.get_template("bancos/index.html")
+    template = loader.get_template("bancos/listar_bancos.html")
+    
+    busca = request.GET.get('pesquisar-banco')
+    if busca:
+        todos_os_bancos = Banco.objects.filter(codigo_de_compensacao__icontains = busca)
+
     context = {
         "todos_os_bancos":todos_os_bancos,
-    }
+    }    
     return HttpResponse(template.render(context, request))
-
-def resultado(request, banco_id):
-    response = "You're looking at the results of banco %s."
-    return HttpResponse(response % banco_id)

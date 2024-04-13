@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Listagem de bancos</title>
+{% endblock title %}
+{% block conteudo %}
+    
+    <h1 class="m-3 text-center">Listagem de bancos</h1>
+    <form class="d-flex m-3" role="search" method="GET">
+        <input class="form-control me-2" name="pesquisar-banco" type="search" placeholder="Insira o Código do banco" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Procurar</button>
+      </form>
+{% if todos_os_bancos %}  
+<table class="table table-striped m-3 text-center">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Código de Compensação</th>
+            <th scope="col">Nome da Instituição</th>
+        </tr>
+    </thead>
+    {% for banco in todos_os_bancos %}
+    <tbody>
+        <tr>
+            <th scope="row">{{banco.codigo_de_compensacao}}</th>
+            <th scope="row">{{banco}}</th>
+        </tr>
+    </tbody>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p class="badge rounded-pill text-bg-warning">Nenhum banco disponível.</p>
+{% endif %}
+{% endblock conteudo %}
