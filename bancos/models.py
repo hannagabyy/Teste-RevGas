@@ -7,8 +7,8 @@ class Banco(models.Model):
     nome_da_instituicao = models.CharField(null=False,blank=False,max_length=200)
 
     class Meta:
-        db_table='bancos'
-        
+        db_table='banco'
+
     def __str__(self):
         return self.nome_da_instituicao
     
