@@ -64,7 +64,8 @@ Rode o projeto
 ```bash
   python manage.py runserver
 ```
-
+Acesse a url :
+- [http://127.0.0.1:8000/bancos/](http://127.0.0.1:8000/bancos/)
 
 ## Autor
 - [@hannagabyy](https://www.github.com/hannagabyy)
