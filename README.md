@@ -13,7 +13,7 @@ Ter instalado
 
 ```bash
   python (pip)
-  servidor do banco de dados Sql
+   banco de dados MySql
 ```
     
 ## Rodando localmente
